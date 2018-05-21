@@ -34,7 +34,6 @@
 	<definition name="userManager" extends="base">
 		<put-attribute name="title" value="User Managing page" />
 		<put-attribute name="body" value="/WEB-INF/views/userManager.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
 	</definition>
 
 	<definition name="login" template="/WEB-INF/templates/nomenulayout.jsp">
@@ -50,5 +49,25 @@
 		<put-attribute name="title" value="상황 조회"/>
 		<put-attribute name="body" value="/WEB-INF/views/viewEmergency.jsp"/>
 	</definition>
-
+	
+	<definition name="emergency" extends="base">
+		<put-attribute name="title" value="응급 상황 내역"/>
+		<put-attribute name="body" value="/WEB-INF/views/emergency.jsp"/>
+	</definition>
+	
+	<definition name="slip" extends="base">
+		<put-attribute name="title" value="낙상 사고 내역"/>
+		<put-attribute name="body" value="/WEB-INF/views/slip.jsp"/>
+	</definition>
+	
+	<definition name="sos" extends="base">
+		<put-attribute name="title" value="SOS 요청 내역"/>
+		<put-attribute name="body" value="/WEB-INF/views/sos.jsp"/>
+	</definition>
+	
+	<definition name="theft" extends="base">
+		<put-attribute name="title" value="외부침입 내역"/>
+		<put-attribute name="body" value="/WEB-INF/views/theft.jsp"/>
+	</definition>
+	
 </tiles-definitions>

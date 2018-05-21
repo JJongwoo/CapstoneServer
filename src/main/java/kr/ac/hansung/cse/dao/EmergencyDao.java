@@ -26,25 +26,23 @@ public class EmergencyDao {
 	public void addEmergency(Emergency emergency) {
 		
 		String emergency_id = emergency.getEmergency_id();
-		String time  = emergency.getTime();
-		String date = emergency.getDate();
+		String datetime  = emergency.getDatetime();
 		int count_toilet = emergency.getCount_toilet();
 		int count_slip = emergency.getCount_slip();
 		int sos = emergency.getSos();
 		int theft = emergency.getTheft();
 		
-		String sqlStatement = "insert into emergency (emergency_id, time, date, count_toilet, count_slip, sos, theft) "
-								+ "values(?, ?, ?, ?, ?, ?, ?)";
+		String sqlStatement = "insert into emergency (emergency_id, datetime, count_toilet, count_slip, sos, theft) "
+								+ "values(?, ?, ?, ?, ?, ?)";
 		System.out.println(emergency);
 		
-		boolean a = jdbcTemplate.update(sqlStatement, new Object[] {emergency_id, time, date, count_toilet
+		boolean a = jdbcTemplate.update(sqlStatement, new Object[] {emergency_id, datetime, count_toilet
 				, count_slip, sos, theft})==1;
 	}
 	
 	public List<Emergency> viewEmergency(String id) {
 		
 		String sqlStatement = "select * from emergency where emergency_id = ?" ;
-		System.out.println(id);
 		return jdbcTemplate.query(sqlStatement,  new Object[] {id},
 				new RowMapper<Emergency>() {
 
@@ -52,8 +50,7 @@ public class EmergencyDao {
 					public Emergency mapRow(ResultSet rs, int arg1) throws SQLException {
 						Emergency emergency = new Emergency();
 						emergency.setEmergency_id(rs.getString("emergency_id"));
-						emergency.setDate(rs.getString("date"));
-						emergency.setTime(rs.getString("time"));
+						emergency.setDatetime(rs.getString("datetime"));
 						emergency.setCount_slip(rs.getInt("count_slip"));
 						emergency.setCount_toilet(rs.getInt("count_toilet"));
 						emergency.setSos(rs.getInt("sos"));
@@ -62,4 +59,61 @@ public class EmergencyDao {
 					}
 		});
 	}
+	
+	public List<Emergency> getEmergency(int count){
+		
+		String sqlStatement = "select * from emergency where count_toilet=1 order by datetime desc limit ?" ;
+		
+		return jdbcTemplate.query(sqlStatement,  new Object[] {count},
+				new RowMapper<Emergency>() {
+
+					@Override
+					public Emergency mapRow(ResultSet rs, int arg1) throws SQLException {
+						Emergency emergency = new Emergency();
+						emergency.setEmergency_id(rs.getString("emergency_id"));
+						emergency.setDatetime(rs.getString("datetime"));
+						emergency.setCount_slip(rs.getInt("count_slip"));
+						emergency.setCount_toilet(rs.getInt("count_toilet"));
+						emergency.setSos(rs.getInt("sos"));
+						emergency.setTheft(rs.getInt("theft"));
+						return emergency;
+					}
+		});
+	}
+
+	public int getEmergencyByStatus(String status) {
+		
+		String sqlStatement = "select count(*) from emergency where ";
+		
+		int count = jdbcTemplate.queryForObject(sqlStatement + status + "=1", Integer.class);
+		
+		return count;
+	}
+
+	public String getLastToilet(String id) {
+		String sqlStatement = "select datetime from emergency where count_toilet=1 AND emergency_id = ? order by datetime desc limit 1";
+		
+		return jdbcTemplate.queryForObject(sqlStatement,new Object[] {id}, String.class);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Emergency> getEmergencyObjectByStatus(String id, String status){
+		
+		String sqlStatement = "select * from emergency where " + status+ "=1 AND emergency_id ='" + id+"'";
+		
+		return jdbcTemplate.query(sqlStatement/* + status + "=1  AND emergency_id='" + id + "'"*/, new RowMapper() {
+
+			@Override
+			public Object mapRow(ResultSet rs, int arg1) throws SQLException {
+				Emergency emergency = new Emergency();
+				emergency.setDatetime(rs.getString("datetime"));
+				emergency.setCount_toilet(rs.getInt(status));
+				
+				return emergency;
+			}
+			
+		});
+	}
+
+
 }

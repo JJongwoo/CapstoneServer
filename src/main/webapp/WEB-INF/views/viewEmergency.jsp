@@ -10,7 +10,6 @@
 			<thead>
 				<tr class="bg-warning">
 					<th>아이디</th>
-					<th>날짜</th>
 					<th>시간</th>
 					<th>화장실 이용 횟수</th>
 					<th>낙상 사고</th>
@@ -23,8 +22,7 @@
 					<!-- items값과  Contoller의 키값과 일치해야함 -->
 					<tr>
 						<td>${emer.emergency_id}</td>
-						<td>${emer.date}</td>
-						<td>${emer.time}</td>
+						<td>${emer.datetime}</td>
 						<td>${emer.count_toilet}</td>
 						<td>${emer.count_slip}</td>
 						<td>${emer.sos}</td>

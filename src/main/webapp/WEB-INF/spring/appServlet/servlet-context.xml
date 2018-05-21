@@ -16,7 +16,11 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/admin/resources/**" location="/resources/" />
-	<resources mapping="/viewUser/resources/**" location="/resources/"/>
+	<resources mapping="/activity/resources/**" location="/resources/" />
+	<resources mapping="/emergency/resources/**" location="/resources/" />
+	<resources mapping="/emergency/slip/resources/**" location="/resources/" />
+	<resources mapping="/emergency/sos/resources/**" location="/resources/" />
+	<resources mapping="/emergency/theft/resources/**" location="/resources/" />
 	
 	<context:component-scan base-package="kr.ac.hansung.cse.controller" />
 

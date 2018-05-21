@@ -48,5 +48,12 @@ public class UserDao {
 		});
 		
 	}
+
+	public String getName(String id) {
+
+		String sqlStatement = "select name from users where username=?";
+		
+		return jdbcTemplate.queryForObject(sqlStatement, new Object[] {id}, String.class);
+	}
 	
 }

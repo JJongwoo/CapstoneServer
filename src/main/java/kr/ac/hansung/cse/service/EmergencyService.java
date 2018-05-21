@@ -1,5 +1,6 @@
 package kr.ac.hansung.cse.service;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,44 @@ public class EmergencyService {
 	}
 
 	public List<Emergency> viewEmergency(String id) {
-
-		return emergencyDao.viewEmergency(id);
+		
+		List<Emergency> emergency = emergencyDao.viewEmergency(id);
+		for(Iterator<Emergency> it = emergency.iterator(); it.hasNext();) {
+			Emergency value = it.next();
+			
+			if(value.getCount_slip()==0 && value.getSos()==0 && value.getTheft()==0) {
+				it.remove();
+			}
+		}
+		
+		return emergency;
 	}
+
+	public int getEmergencyByStatus(String status) {
+		return emergencyDao.getEmergencyByStatus(status);
+		
+	}
+
+	public List<Emergency> getEmergency(int i) {
+		
+		return emergencyDao.getEmergency(i);
+	}
+
+	public List<Emergency> getSlip(String id, String status) {
+
+		return emergencyDao.getEmergencyObjectByStatus(id, status);
+	}
+
+	public List<Emergency> getSos(String id, String status) {
+
+		return emergencyDao.getEmergencyObjectByStatus(id, status);
+	}
+	
+	public List<Emergency> getTheft(String id, String status) {
+
+		return emergencyDao.getEmergencyObjectByStatus(id, status);
+	}
+
+
+	
 }
