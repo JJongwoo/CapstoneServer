@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<script language='javascript'> 
+window.setTimeout('window.location.reload()',6000);
+</script>
+
 <div class="container">
 	<div class="container-wrapper">
 
@@ -42,6 +46,11 @@
 				</tbody>
 			</table>
 		</div>
+		<a href="<c:url value="/activity/threedays/${pageContext.request.userPrincipal.name}"/>"><button type="button" class="btn btn-secondary">최근 3일</button></a>
+		<a href="<c:url value="/activity/oneweek/${pageContext.request.userPrincipal.name}"/>"><button type="button" class="btn btn-secondary">최근 1주일</button></a>
+		
+		
+		
 
 	</div>
 </div>

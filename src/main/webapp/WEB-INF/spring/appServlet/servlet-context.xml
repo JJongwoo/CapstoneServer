@@ -17,10 +17,21 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/admin/resources/**" location="/resources/" />
 	<resources mapping="/activity/resources/**" location="/resources/" />
+	<resources mapping="/activity/threedays/resources/**" location="/resources/" />
+	<resources mapping="/activity/oneweek/resources/**" location="/resources/" />
 	<resources mapping="/emergency/resources/**" location="/resources/" />
 	<resources mapping="/emergency/slip/resources/**" location="/resources/" />
+	<resources mapping="/emergency/slip/thismonth/resources/**" location="/resources/" />
+	<resources mapping="/emergency/slip/lastmonth/resources/**" location="/resources/" />
+	<resources mapping="/emergency/slip/thisyear/resources/**" location="/resources/" />
 	<resources mapping="/emergency/sos/resources/**" location="/resources/" />
+	<resources mapping="/emergency/sos/thismonth/resources/**" location="/resources/" />
+	<resources mapping="/emergency/sos/lastmonth/resources/**" location="/resources/" />
+	<resources mapping="/emergency/sos/thisyear/resources/**" location="/resources/" />
 	<resources mapping="/emergency/theft/resources/**" location="/resources/" />
+	<resources mapping="/emergency/theft/thismonth/resources/**" location="/resources/" />
+	<resources mapping="/emergency/theft/lastmonth/resources/**" location="/resources/" />
+	<resources mapping="/emergency/theft/thisyear/resources/**" location="/resources/" />
 	
 	<context:component-scan base-package="kr.ac.hansung.cse.controller" />
 

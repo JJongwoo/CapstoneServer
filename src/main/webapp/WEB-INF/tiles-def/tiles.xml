@@ -27,7 +27,7 @@
 	</definition>
 
 	<definition name="activity" extends="base">
-		<put-attribute name="title" value="Activity page" />
+		<put-attribute name="title" value="실시간 활동 페이지" />
 		<put-attribute name="body" value="/WEB-INF/views/activity.jsp" />
 	</definition>
 
@@ -68,6 +68,61 @@
 	<definition name="theft" extends="base">
 		<put-attribute name="title" value="외부침입 내역"/>
 		<put-attribute name="body" value="/WEB-INF/views/theft.jsp"/>
+	</definition>
+	
+	<definition name="toiletThreedays" extends="base">
+		<put-attribute name="title" value="최근 3일간 내역"/>
+		<put-attribute name="body" value="/WEB-INF/views/toiletThreedays.jsp"/>
+	</definition>
+	
+	<definition name="toiletOneWeek" extends="base">
+		<put-attribute name="title" value="최근 1주일간 내역"/>
+		<put-attribute name="body" value="/WEB-INF/views/toiletOneWeek.jsp"/>
+	</definition>
+	
+	<definition name="slipthismonth" extends="base">
+		<put-attribute name="title" value="이번달 낙상사고"/>
+		<put-attribute name="body" value="/WEB-INF/views/slipthismonth.jsp"/>
+	</definition>
+	
+	<definition name="sliplastmonth" extends="base">
+		<put-attribute name="title" value="저번달 낙상사고"/>
+		<put-attribute name="body" value="/WEB-INF/views/sliplastmonth.jsp"/>
+	</definition>
+	
+	<definition name="slipthisyear" extends="base">
+		<put-attribute name="title" value="이번연도 낙상사고"/>
+		<put-attribute name="body" value="/WEB-INF/views/slipthisyear.jsp"/>
+	</definition>
+	
+	<definition name="sosthismonth" extends="base">
+		<put-attribute name="title" value="이번달 SOS요청"/>
+		<put-attribute name="body" value="/WEB-INF/views/sosthismonth.jsp"/>
+	</definition>
+	
+	<definition name="soslastmonth" extends="base">
+		<put-attribute name="title" value="저번달 SOS요청"/>
+		<put-attribute name="body" value="/WEB-INF/views/soslastmonth.jsp"/>
+	</definition>
+	
+	<definition name="sosthisyear" extends="base">
+		<put-attribute name="title" value="이번연도 SOS요청"/>
+		<put-attribute name="body" value="/WEB-INF/views/sosthisyear.jsp"/>
+	</definition>
+	
+	<definition name="theftthismonth" extends="base">
+		<put-attribute name="title" value="이번달 외부침입 경고"/>
+		<put-attribute name="body" value="/WEB-INF/views/theftthismonth.jsp"/>
+	</definition>
+	
+	<definition name="theftlastmonth" extends="base">
+		<put-attribute name="title" value="저번달 외부침입 경고"/>
+		<put-attribute name="body" value="/WEB-INF/views/theftlastmonth.jsp"/>
+	</definition>
+	
+	<definition name="theftthisyear" extends="base">
+		<put-attribute name="title" value="이번연도 외부침입 경고"/>
+		<put-attribute name="body" value="/WEB-INF/views/theftthisyear.jsp"/>
 	</definition>
 	
 </tiles-definitions>

@@ -59,6 +59,11 @@ public class EmergencyService {
 		return emergencyDao.getEmergencyObjectByStatus(id, status);
 	}
 
+	public List<Emergency> getToiletUse(String id, String status) {
+		
+		return emergencyDao.getEmergencyObjectByStatus(id, status);
+	}
+
 
 	
 }

@@ -69,8 +69,6 @@ public class FcmMsgService {
 			response.append(inputLine);
 		}
 		in.close();
-		// print result
-		System.out.println(response.toString());
 
 	}
 	

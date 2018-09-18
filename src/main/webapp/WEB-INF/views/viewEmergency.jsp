@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<script language='javascript'> 
+window.setTimeout('window.location.reload()',4000);
+</script>
+
 <div class="container-wrapper">
 	<div class="container">
 		<h2>All Users</h2>

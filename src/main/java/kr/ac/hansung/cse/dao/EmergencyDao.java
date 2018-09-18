@@ -99,7 +99,7 @@ public class EmergencyDao {
 	@SuppressWarnings("unchecked")
 	public List<Emergency> getEmergencyObjectByStatus(String id, String status){
 		
-		String sqlStatement = "select * from emergency where " + status+ "=1 AND emergency_id ='" + id+"'";
+		String sqlStatement = "select * from emergency where " + status+ "=1 AND emergency_id ='" + id+"' order by datetime desc";
 		
 		return jdbcTemplate.query(sqlStatement/* + status + "=1  AND emergency_id='" + id + "'"*/, new RowMapper() {
 
@@ -114,6 +114,19 @@ public class EmergencyDao {
 			
 		});
 	}
+
+	/*public List<Emergency> getToiletUse(String id) {
+		String sqlStatement = "select * from emergency where id=" + id + "and count_toilet=1";
+		
+		return jdbcTempldate.query(sqlStatement, new RowMapper() {
+
+			@Override
+			public Object mapRow(ResultSet arg0, int arg1) throws SQLException {
+				Emergency emergency = new Emergency();
+			}
+			
+		});
+	}*/
 
 
 }
