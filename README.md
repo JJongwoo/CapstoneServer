@@ -1,4 +1,4 @@
-# CapstoneServer
+# CapstoneServer  (2018. 03 ~2018. 06)
 2018 캡스톤디자인 HelloGrandma 서버
 
 스프링 프레임워크를 이용해 서버를 구축 및 부트스트랩을 이용해 웹페이지 및 웹앱 구현
